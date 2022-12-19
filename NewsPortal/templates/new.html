@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% load censor %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+<h1>Название: {{ new.title| Censor }}</h1>
+<p>Текст новости: {{ new.text | Censor}}</p>
+<p>Рейтинг:  {{ new.rating}}</p>
+<p>Дата загрузки - {{ new.dateCreation }}</p>
+{% endblock content %}
