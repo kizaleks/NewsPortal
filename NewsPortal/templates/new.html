@@ -7,8 +7,18 @@ News
 {% endblock title %}
 
 {% block content %}
+{% if new.categoryType in "NW" %}
+                        <h1>Новость</h1>
+                        {% else %}
+                        <h1>Статья</h1>
+                        {% endif %}
 <h1>Название: {{ new.title| Censor }}</h1>
+<p>Категории: </p>
+{% for cat in new.postCategory.all %}
+{{ cat.name }}
+{% endfor %}
 <p>Текст новости: {{ new.text | Censor}}</p>
+<p>Автор:  {{ new.author.authorUser}}</p>
 <p>Рейтинг:  {{ new.rating}}</p>
 <p>Дата загрузки - {{ new.dateCreation }}</p>
 {% endblock content %}

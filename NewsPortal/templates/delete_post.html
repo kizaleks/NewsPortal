@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+
+{% load censor %}
+
+{% block title %}
+Delete
+{% endblock title %}
+
+{% block content %}
+<h2>Вы действительно хотите удалить данный пост?</h2>
+<h1>Название - {{ new.title| Censor }}</h1>
+<p>Текст - {{ new.text | Censor}}</p>
+<p>Автор - {{ new.author.authorUser }}</p>
+<p>Дата загрузки - {{ new.dateCreation }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+     <button type="submit" class="btn btn-danger">Delete post</button>
+    <a class="btn btn-outline-secondary" href="{% url 'news' %}">Cancel</a>
+
+<!--    <input type="submit" value="подтвердить">-->
+</form>
+{% endblock content %}

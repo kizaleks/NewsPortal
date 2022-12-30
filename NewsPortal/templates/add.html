@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %}
+
+{% load censor %}
+
+{% block title %}
+<p>Add news</p>
+
+{% endblock title %}
+
+{% block content %}
+
+
+        <table class="col-lg-12 text-center">
+
+
+            {% for new in filter.qs %}
+                <tr>
+                    <td style="text-align: left">
+                        {{ new.title | Censor }}
+                    </td>
+                    <td style="text-align: left">
+                        {{ new.text | truncatechars:50 | Censor }}
+                    </td>
+                    <td style="text-align: left">
+                        {{ new.author.authorUser }}
+                    </td>
+                    <td style="text-align: center">
+                        {{ new.dateCreation }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- Теперь нам нужна только готовая форма и кнопка -->
+    <input type="submit" value="Сохранить новость/статью">
+</form>
+
+{% endblock content %}
