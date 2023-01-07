@@ -1,4 +1,4 @@
-{% extends 'flatpages/default.html' %}
+{% extends 'account/base.html' %}
 
 {% load censor %}
 
@@ -32,14 +32,23 @@
                 <td style="text-align: left">
                         {% if new.categoryType in "NW" %}
                         <a href="{% url 'post_detail_nw' new.id %}">{{ new.title | Censor }}</a>
-
-                        <a href="{% url 'post_update_nw' new.id %}"><u>Редактировать </u></a>
-                        <a href="{% url 'post_delete_nw' new.id %}"><u>Удалить </u></a> <!-- добавим ссылку на удаление -->
-                        {% else %}
-                        <a href="{% url 'post_detail_articles' new.id %}">{{ new.title | Censor }}</a>
-                        <a href="{% url 'post_update_articles' new.id %}"><u>Редактировать </u></a>
-                    <a href="{% url 'post_delete_articles' new.id %}"><u>Удалить </u></a> <!-- добавим ссылку на удаление-->
+                    {% if user.first_name in new.author.authorUser.username %}
+                    {% if perms.newsapp.change_post %}
+                         <a href="{% url 'post_update_nw' new.id %}"><u>Редактировать </u></a>
                         {% endif %}
+                    {% if perms.newsapp.delete_post %}
+                         <a href="{% url 'post_delete_nw' new.id %}"><u>Удалить </u></a> <!-- добавим ссылку на удаление -->
+                    {% endif %}
+                    {% endif %}
+                    {% else %}
+                        <a href="{% url 'post_detail_articles' new.id %}">{{ new.title | Censor }}</a>
+                    {% if perms.newsapp.change_post or perms.newsapp.delete_post %}
+                     {% if user.first_name in new.author.authorUser.username %}
+                    <a href="{% url 'post_update_articles' new.id %}"><u>Редактировать </u></a>
+                    <a href="{% url 'post_delete_articles' new.id %}"><u>Удалить </u></a> <!-- добавим ссылку на удаление-->
+                     {% endif %}
+                    {% endif %}
+                    {% endif %}
                     <!-- При нажатии на имя товара в таблице нас теперь будет перекидывать на страницу с информацией  -->
 
                 </td>

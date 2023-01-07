@@ -1,11 +1,11 @@
-{% extends 'flatpages/default.html' %}
+{% extends 'account/base.html' %}
 
 {% load censor %}
 
 {% block title %}
 Delete
 {% endblock title %}
-
+{% if perms.newsapp.delete_post %}
 {% block content %}
 <h2>Вы действительно хотите удалить данный пост?</h2>
 <h1>Название - {{ new.title| Censor }}</h1>
@@ -22,3 +22,4 @@ Delete
 <!--    <input type="submit" value="подтвердить">-->
 </form>
 {% endblock content %}
+{% endif %}

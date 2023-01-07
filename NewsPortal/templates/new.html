@@ -1,4 +1,4 @@
-{% extends 'flatpages/default.html' %}
+{% extends 'account/base.html' %}
 
 {% load censor %}
 
@@ -21,4 +21,5 @@ News
 <p>Автор:  {{ new.author.authorUser}}</p>
 <p>Рейтинг:  {{ new.rating}}</p>
 <p>Дата загрузки - {{ new.dateCreation }}</p>
+
 {% endblock content %}
