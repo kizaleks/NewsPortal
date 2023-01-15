@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404, render
 
 class PostList(ListView):
     model = Post
@@ -16,6 +16,7 @@ class PostList(ListView):
     context_object_name = 'news'
     queryset = Post.objects.order_by('-dateCreation')
     paginate_by = 10
+
 
     def get_queryset(self):
         # Получаем обычный запрос
@@ -140,3 +141,31 @@ def upgrade_me(request):
                 authorUser=User.objects.get(pk=user.id)
             )
     return redirect('/news')
+
+class CategoryListViev(ListView):
+    model = Post
+    template_name = 'category_list.html'
+    context_object_name = 'categorys_news_list'
+
+
+    paginate_by = 10
+
+    def get_queryset(self):
+        self.category= get_object_or_404(Category, id=self.kwargs['pk'])
+        queryset= Post.objects.filter(postCategory=self.category).order_by('-dateCreation')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        contex=super().get_context_data(**kwargs)
+        contex['is_not_subscribers']=self.request.user not in self.category.subscribers.all()
+        contex['category']=self.category
+        return contex
+
+@login_required
+def subscribe(request, pk):
+    user=request.user
+    category=Category.objects.get(id=pk)
+    category.subscribers.add(user)
+    massage='Вы успешно подписались на рассылку новостей категории'
+    return render(request, 'subscribe.html', {'category':category, 'massage':massage})
+

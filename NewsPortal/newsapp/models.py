@@ -21,6 +21,7 @@ class Author(models.Model):
 #Класс Категории
 class Category(models.Model):
     name=models.CharField(max_length=64, unique=True)
+    subscribers=models.ManyToManyField(User, related_name='category')
     def __str__(self):
         return f'{self.name}'
 
@@ -43,6 +44,7 @@ class Post(models.Model):
     # def __str__(self):
     #     return f'{self.postCategory}'
 
+
     def like(self):
         self.rating +=1
         self.save()
@@ -54,6 +56,11 @@ class Post(models.Model):
 
     def preview(self):
         return f'{self.text[0:123]}...'
+    def __str__(self):
+        return f'{self.title} | {self.author}'
+
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
 
 #Класс Категории постов
 class PostCategory(models.Model):
