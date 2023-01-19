@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, View
 from .models import Post, Category,Author
 from datetime import datetime
 from .filters import PostFilter
@@ -86,11 +86,12 @@ class NewsCreate(PermissionRequiredMixin, CreateView):
     template_name = 'add.html'
     success_url = '/news'
 
+
+
     def form_valid(self, form):
         post = form.save(commit=False)
         post.author=Author.objects.get(authorUser=self.request.user)
         post.categoryType = 'NW'
-
         return super().form_valid(form)
 
 class ArticleCreate(PermissionRequiredMixin, CreateView):
@@ -99,10 +100,9 @@ class ArticleCreate(PermissionRequiredMixin, CreateView):
     model = Post
     template_name = 'add.html'
     success_url = '/news'
-
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.author.authorUser = User.first_name
+        post.author=Author.objects.get(authorUser=self.request.user)
         post.categoryType = 'AR'
         return super().form_valid(form)
 # дженерик для редактирования объекта
@@ -125,8 +125,8 @@ class PostDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'delete_post.html'
     queryset = Post.objects.all
     context_object_name = 'new'
-    success_url = '/news'
-    success_url = reverse_lazy('/news')
+    success_url = 'news'
+    success_url = reverse_lazy('news')
     def get_object(self, **kwargs):
         id = self.kwargs.get('pk')
         return Post.objects.get(pk=id)
