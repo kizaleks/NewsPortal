@@ -9,8 +9,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect, get_object_or_404, render
+# import logging
+#
+# logger=logging.getLogger(__name__)
 
 class PostList(ListView):
+    # logger.info('INFO')
     model = Post
     template_name = 'news.html'
     context_object_name = 'news'

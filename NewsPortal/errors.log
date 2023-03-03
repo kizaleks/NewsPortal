@@ -1,0 +1,22 @@
+2023-03-02 15:18:55,426 - INFO - basehttp - "GET / HTTP/1.1" 200 11241 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:18:55,449 - WARNING - basehttp - "GET /static/css/styles.css HTTP/1.1" 404 1801 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:19:13,491 - WARNING - log - Not Found: /products - D:\python\python3.8.9\lib\site-packages\django\utils\log.py - None
+2023-03-02 15:19:13,493 - WARNING - basehttp - "GET /products HTTP/1.1" 404 4934 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:25,221 - INFO - basehttp - "GET / HTTP/1.1" 200 11241 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:25,241 - WARNING - basehttp - "GET /static/css/styles.css HTTP/1.1" 404 1801 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,391 - INFO - basehttp - "GET /admin HTTP/1.1" 301 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,429 - INFO - basehttp - "GET /admin/ HTTP/1.1" 302 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,506 - INFO - basehttp - "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2222 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,537 - INFO - basehttp - "GET /static/admin/css/base.css HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,551 - INFO - basehttp - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,555 - INFO - basehttp - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,556 - INFO - basehttp - "GET /static/admin/css/login.css HTTP/1.1" 200 958 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,561 - INFO - basehttp - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,565 - INFO - basehttp - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,582 - INFO - basehttp - "GET /static/admin/css/fonts.css HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,643 - INFO - basehttp - "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:32,644 - INFO - basehttp - "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:38,721 - INFO - basehttp - "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2383 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:38,777 - INFO - basehttp - "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
+2023-03-02 15:20:47,113 - WARNING - log - Not Found: /products - D:\python\python3.8.9\lib\site-packages\django\utils\log.py - None
+2023-03-02 15:20:47,114 - WARNING - basehttp - "GET /products HTTP/1.1" 404 4934 - D:\python\python3.8.9\lib\site-packages\django\core\servers\basehttp.py - None
